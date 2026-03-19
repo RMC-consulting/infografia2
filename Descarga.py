@@ -21,7 +21,7 @@ st.set_page_config(
 # CONFIGURACIÓN DE RUTAS
 # ============================================
 BASE_DIR = Path(__file__).resolve().parent
-PDF_FILENAME = "RMC-Flyer Sector Financiero (infografia).PDF"
+PDF_FILENAME = "RMC-Flyer_sector_financiero-89c.pdf"
 PDF_PATH = BASE_DIR / PDF_FILENAME
 
 # ============================================
@@ -29,7 +29,7 @@ PDF_PATH = BASE_DIR / PDF_FILENAME
 # ============================================
 REMITENTE = "mkt.rochamendoza@gmail.com"
 DESTINATARIO = "mkt.rochamendoza@gmail.com"
-CONTRASENA_APP = "flub pyvf mjhn jfgb"
+CONTRASENA_APP = "fsmr rgcm jntc qiua"
 ASUNTO_CORREO = "Nuevo registro de descarga de PDF"
 
 # ============================================
@@ -202,7 +202,7 @@ def mostrar_pdf_como_imagenes(pdf_bytes):
         st.error(f"No se pudo mostrar la vista previa del PDF: {e}")
 
 
-def enviar_correo_registro(nombre, correo, empresa, telefono, comentarios, pdf_name):
+def enviar_correo_registro(nombre, correo, empresa, whatsapp, comentarios, pdf_name):
     cuerpo = f"""
 Se ha registrado una nueva descarga de documento.
 
@@ -210,7 +210,7 @@ Datos del registro:
 - Nombre: {nombre}
 - Correo: {correo}
 - Empresa: {empresa}
-- Teléfono: {telefono}
+- Whatsapp: {whatsapp}
 - Comentarios: {comentarios}
 - Documento solicitado: {pdf_name}
 """
@@ -267,7 +267,7 @@ with st.form("form_registro"):
     nombre = st.text_input("Nombre completo")
     correo = st.text_input("Correo electrónico")
     empresa = st.text_input("Empresa")
-    telefono = st.text_input("Teléfono")
+    whatsapp = st.text_input("Whatsapp")
     comentarios = st.text_area("Comentarios", placeholder="Opcional")
 
     enviar = st.form_submit_button("Registrar y habilitar descarga")
@@ -286,7 +286,7 @@ with st.form("form_registro"):
                 nombre=nombre.strip(),
                 correo=correo.strip(),
                 empresa=empresa.strip(),
-                telefono=telefono.strip(),
+                whatsapp=whatsapp.strip(),
                 comentarios=comentarios.strip(),
                 pdf_name=st.session_state.pdf_name
             )
